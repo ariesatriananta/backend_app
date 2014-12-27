@@ -3,7 +3,6 @@ $pageName='home';
 include("lib/libApp.php");
 include("lib/libHtml.php");
 ?>
-<title><?php title('Home'); ?></title>
 <!-- BEGIN BODY -->
 <body class="fixed-top">
    <!-- BEGIN HEADER -->

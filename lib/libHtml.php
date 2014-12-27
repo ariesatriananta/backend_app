@@ -1,5 +1,6 @@
 <?php
-include("functions/htmlFunctions.php");
+include("functions/pageView.php");
+include("functions/widget.php");
 //include("html/sidebar.php");
 //include("html/footer.php");
 //include("html/all.php");

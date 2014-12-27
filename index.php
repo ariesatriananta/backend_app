@@ -1,6 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){ ?>
+$pageName='index';
+if(!isset($_SESSION['user_id'])){ ?>
 	<script language="javascript">
 	document.location='login.php';
 	</script>

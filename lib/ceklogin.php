@@ -8,7 +8,7 @@ $pass = $_POST['pass'];
 if(empty($user)or empty($pass)){ ?>
 	<script language="JavaScript">
 		alert("Tidak Boleh Kosong");
-		document.location="<?php echo baseUrl(); ?>index.php";
+		document.location="<?php echo baseUrl(); ?>login.php";
 	</script>
 	<?php
 	}else{

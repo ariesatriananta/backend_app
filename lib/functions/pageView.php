@@ -1,19 +1,16 @@
 <?php
-
-function title($title){
-    $nama_profile = query("SELECT * FROM profile WHERE profile_status=1");
-    echo "$nama_profile[profile_nama] - $title ";
-}
-
+$dataProfile = query("SELECT * FROM profile WHERE profile_status=1");
+echo '<title>'.$dataProfile['profile_nama'].' - '.$pageName.'</title>';
 function head() { ?>
+<?php $profile = query("SELECT * FROM profile WHERE profile_status=1"); ?>
     <!-- BEGIN HEADER -->
        <div id="header" class="navbar navbar-inverse navbar-fixed-top">
           <!-- BEGIN TOP NAVIGATION BAR -->
           <div class="navbar-inner">
              <div class="container-fluid">
                 <!-- BEGIN LOGO -->
-                <a class="brand" href="home.php">
-                <img src="assets/img/logo.png" alt="Conquer"/>
+                <a class="brand" href="<?php echo baseUrl(); ?>home.php">
+                    <img src="<?php echo baseUrl().'pic/sistem/'.$profile['profile_logo']; ?>" alt="Conquer"/>
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -26,18 +23,29 @@ function head() { ?>
                 <!-- END RESPONSIVE MENU TOGGLER --> 
                 <div class="top-nav">
 
-                   <!-- BEGIN TOP NAVIGATION MENU -->              
+                   <!-- BEGIN TOP NAVIGATION MENU -->   
+                   
                    <ul class="nav pull-right" id="top_menu">
                       <!-- BEGIN USER LOGIN DROPDOWN -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-user"></i> 
+                            <i class="icon-wrench"></i>
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="<?php echo baseUrl(); ?>systemProfile.php"><i class="icon-cogs"></i> Pengaturan Sistem</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user"></i>  
                                 <?php 
                                 echo infoLogin_userNamaLengkap; ?>
                             <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                    <li><a href="logout.php"><i class="icon-off"></i> Log Out</a></li>
+                                    <li><a href="<?php echo baseUrl(); ?>"><i class="icon-user"></i> Profil</a></li>
+                                    <li><a href="<?php echo baseUrl(); ?>logout.php"><i class="icon-off"></i> Log Out</a></li>
                             </ul>
                         </li>
                       <!-- END USER LOGIN DROPDOWN -->
