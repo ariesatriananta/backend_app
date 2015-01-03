@@ -1,18 +1,12 @@
 <?php
 
-if (isset($_POST['aksi'])){
-	$aksi	= $_POST['aksi'];
-	echo $aksi;
-}else{
-	$aksi	= $_GET['aksi'];
-	echo $aksi;
-}?><br /><?php
-if (isset($_POST['kode_kat'])){
-	$kode	= $_POST['kode_kat'];
-	echo $kode;
-}else{
-	$kode	= $_GET['kode_kat'];
-	echo $kode;
-}
-$nama	= $_POST['nama'];
-echo $nama;
+include("../lib/koneksi.php");
+$table= $_POST['table'];
+$data = $_POST['insert'];
+
+$sql = "INSERT INTO $table ";
+$sql .= "(".implode(',', array_keys($data)).")";
+$sql .= " VALUES ('".implode("','", $data)."')";
+$result = mysql_query($sql) or die(mysql_error());
+
+

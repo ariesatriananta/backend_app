@@ -22,9 +22,8 @@ var TableEditable = function () {
                 jqTds[1].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[1] + '">';
                 jqTds[2].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[2] + '">';
                 jqTds[3].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[3] + '">';
-				jqTds[4].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[4] + '">';
-                jqTds[5].innerHTML = '<a class="edit" href="">Save</a>';
-                jqTds[6].innerHTML = '<a class="cancel" href="">Cancel</a>';
+                jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
+                jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
             }
 
             function saveRow(oTable, nRow) {
@@ -33,9 +32,8 @@ var TableEditable = function () {
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                 oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
                 oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-				oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 5, false);
-                oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 6, false);
+                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+                oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 5, false);
                 oTable.fnDraw();
             }
 
@@ -45,8 +43,7 @@ var TableEditable = function () {
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                 oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
                 oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-				oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 5, false);
+                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
                 oTable.fnDraw();
             }
 
@@ -60,7 +57,7 @@ var TableEditable = function () {
                 "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
-                    "sLengthMenu": "_MENU_ baris per halaman",
+                    "sLengthMenu": "_MENU_ records per page",
                     "oPaginate": {
                         "sPrevious": "Prev",
                         "sNext": "Next"
@@ -88,30 +85,17 @@ var TableEditable = function () {
                 nEditing = nRow;
             });
 
-             $('#sample_editable_1 a.delete').live('click', function (e) {
+            $('#sample_editable_1 a.delete').live('click', function (e) {
                 e.preventDefault();
-                if (confirm("Yakin data ini akan dihapus ?") == false) {
-                    return;
-				}
-                var parent = $(this).closest('tr');
-					$.ajax({
-						type: 'get',
-						url: 'hkaos.php', // <- replace this with your url here
-						data: 'ajax=1&delete=' + $(this).attr('id'),
-						beforeSend: function() {
-							parent.animate({'backgroundColor':'#333'},300);
-						},
-						success: function() {
-							parent.fadeOut(500,function() {
-								parent.remove();
-							});
-						}
-						
-					});  
-				
-            });
 
-			
+                if (confirm("Are you sure to delete this row ?") == false) {
+                    return;
+                }
+
+                var nRow = $(this).parents('tr')[0];
+                oTable.fnDeleteRow(nRow);
+                alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+            });
 
             $('#sample_editable_1 a.cancel').live('click', function (e) {
                 e.preventDefault();

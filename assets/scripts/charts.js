@@ -443,7 +443,7 @@ var Charts = function () {
 
         initPieCharts: function () {
             var graphData = [];
-            var series = 3;
+            var series = Math.floor(Math.random() * 10) + 2;
             for (var i = 0; i < series; i++) {
                 graphData[i] = {
                     label: "Series" + (i + 1),
@@ -460,7 +460,7 @@ var Charts = function () {
                             show: true,
                             radius: 1,
                             formatter: function (label, series) {
-                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + 'Kategori' + '%</div>';
+                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
                             },
                             background: {
                                 opacity: 0.8

@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/backend_app/lib/functions/htmlFunctions.php</file>
-            <file>file:/C:/wamp/www/backend_app/lib/defaultValue.php</file>
-            <file>file:/C:/wamp/www/backend_app/coba.php</file>
             <file>file:/C:/wamp/www/backend_app/home.php</file>
+            <file>file:/C:/wamp/www/backend_app/lib/functions/pageView.php</file>
+            <file>file:/C:/wamp/www/backend_app/systemProfile.php</file>
             <file>file:/C:/wamp/www/backend_app/lib/libHtml.php</file>
-            <file>file:/C:/wamp/www/backend_app/lib/all.php</file>
-            <file>file:/C:/wamp/www/backend_app/lib/libApp.php</file>
+            <file>file:/C:/wamp/www/backend_app/lib/functions/widget.php</file>
         </group>
     </open-files>
 </project-private>

@@ -10,7 +10,7 @@ function head() { ?>
              <div class="container-fluid">
                 <!-- BEGIN LOGO -->
                 <a class="brand" href="<?php echo baseUrl(); ?>home.php">
-                    <img src="<?php echo baseUrl().'pic/sistem/'.$profile['profile_logo']; ?>" alt="Conquer"/>
+                    <img src="<?php echo baseUrl().'pic/'.$profile['profile_logo']; ?>" alt="Conquer"/>
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->

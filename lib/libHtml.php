@@ -1,9 +1,7 @@
 <?php
 include("functions/pageView.php");
 include("functions/widget.php");
-//include("html/sidebar.php");
-//include("html/footer.php");
-//include("html/all.php");
+include("functions/modal.php");
 
 ?>
     <!-- BEGIN HEAD -->
@@ -134,13 +132,11 @@ include("functions/widget.php");
    <!-- <script src="lib/hapus.js"></script>    -->
    <script>
       jQuery(document).ready(function() {       
-         App.init();
-		 FormComponents.init();
-         TableEditable.init();
-		 FormValidation.init();
-		 
-		 
-		 Login.init();
+        App.init();
+        FormComponents.init();
+        TableEditable.init();
+        FormValidation.init();
+        Login.init();
 		 
 		 //TableEditable.init();
       });
